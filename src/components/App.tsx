@@ -8,14 +8,25 @@ declare global {
   }
 }
 
-function App() {
+function App({ language }: { language: string }) {
+
   useEffect(() => {
-    window.brweb.track('view_homepage');
+    setTimeout(() => {
+      window.brweb.track('view_homepage');
+    });
   }, []);
 
+  const getHeaderText = () => {
+    if (language === 'en') return 'Welcome to Our Store';
+    if (language === 'cz') return 'Vítejte v našem obchodě';
+  };
+
   return (
-    <div>
-      <SearchBar />
+    <div className="homepage">
+      <header className="header">
+        <h1>{getHeaderText()}</h1>
+        <SearchBar language={language} />
+      </header>
     </div>
   )
 }

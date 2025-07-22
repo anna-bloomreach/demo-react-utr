@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router';
 import { products } from '../data/products';
+import ProductGrid from './ProductGrid';
 
-
-const getQueryId = (query: string) => {
-  const product = products.find(product => product.name === query);
+const getQueryId = (query: string, language: string) => {
+  const product = products.find(product => product[language as 'en' | 'cz'].name === query);
   return product?.id || '';
 };
 
-const SearchBar: React.FC = () => {
+const SearchBar: React.FC<{ language: string }> = ({ language }) => {
   const [query, setQuery] = useState('');
-  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [suggestions, setSuggestions] = useState<any[]>([]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -18,9 +18,10 @@ const SearchBar: React.FC = () => {
 
     setQuery(value);
     const filteredSuggestions = products.filter(product =>
-      product.name.toLowerCase().includes(value.toLowerCase())
-    ).map(product => product.name);
+      product[language as 'en' | 'cz'].name.toLowerCase().includes(value.toLowerCase())
+    );
     setSuggestions(filteredSuggestions);
+
   };
 
   const handleSuggestionClick = () => {
@@ -36,31 +37,23 @@ const SearchBar: React.FC = () => {
 
   return (
     <div className="search-bar">
-      <input
-        type="text"
-        value={query}
-        onChange={handleInputChange}
-        placeholder="Search..."
-        className="search-input"
-      />
 
-      <NavLink to={`/en/product/${getQueryId(query)}`} onClick={() => handleSearchClick()}>
-        <button className="search-button" >
-          Submit
-        </button>
-      </NavLink>
-      {suggestions.length > 0 && (
-        <ul className="suggestions-list">
-          {suggestions.map((suggestion) => (
-            <li
-              key={suggestion}
-              onClick={() => handleSuggestionClick()}
-            >
-              <NavLink className="nav-link" to={`/en/product/${getQueryId(suggestion)}`}>{suggestion}</NavLink>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="search-bar-container">
+        <input
+          type="text"
+          value={query}
+          onChange={handleInputChange}
+          placeholder={language === 'en' ? 'Search...' : 'Hledat...'}
+          className="search-input"
+        />
+        <NavLink to={`/${language}/product/${getQueryId(query, language)}`} onClick={() => handleSearchClick()}>
+          <button className="search-button">
+            🔍
+          </button>
+        </NavLink>
+      </div>
+
+      <ProductGrid suggestions={suggestions} handleSuggestionClick={handleSuggestionClick} language={language} />
     </div>
   );
 };

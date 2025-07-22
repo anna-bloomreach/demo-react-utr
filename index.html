@@ -1,29 +1,217 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
-    
-  // UTR snippet 
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script>
+            // UTR snippet
 
-  !function(e,t,n,i,o,r){const s=4e3,c="xnpe_async_hide";function a(e){if("number"!=typeof e)return e;const t=new Date;return new Date(t.getTime()+1e3*e)}function p(e){return e.reduce((function(e,t){return e[t]=function(){e._.push([t.toString(),arguments])},e}),{_:[]})}function m(e,t,n){const i=n.createElement(t);i.src=e;const o=n.getElementsByTagName(t)[0];return o.parentNode.insertBefore(i,o),i}function l(e){return"[object Date]"===Object.prototype.toString.call(e)}r.target=r.target||"//api.exponea.com",r.file_path=r.file_path||r.target+"/js/brweb.min.js",o[t]=p(["anonymize","initialize","identify","getSegments","update","track","trackLink","trackEnhancedEcommerce","getHtml","showHtml","showBanner","showWebLayer","ping","getAbTest","loadDependency","getRecommendation","reloadWebLayers","_preInitialize","_initializeConfig","metadata"]),o[t].notifications=p(["isAvailable","isSubscribed","subscribe","unsubscribe"]),o[t].segments=p(["subscribe"]),o[t]["snippetVersion"]="v3.1.1",function(e,t,n,i){e[i]={sdk:e[n],sdkObjectName:n,skipExperiments:!!t.new_experiments,path:t.target,streamId:t.stream_id}}(o,r,t,i),function(e,t,n){m(e.file_path,t,n)}(r,n,e),function(e,t,n,i,o,r,p,u){if(!e.new_experiments)return;!0===e.new_experiments&&(e.new_experiments={});const _=e.new_experiments.hide_class||c,f=e.new_experiments.timeout||s,d=encodeURIComponent(r.location.href);let g;e.cookies&&e.cookies.expires&&("number"==typeof e.cookies.expires||l(e.cookies.expires)?g=a(e.cookies.expires):e.cookies.expires.tracking&&("number"==typeof e.cookies.expires.tracking||l(e.cookies.expires.tracking))&&(g=a(e.cookies.expires.tracking))),g&&g<new Date&&(g=void 0);const b='http://localhost:4000'+"/webxp/streams/"+e.stream_id+"/"+t+"/"+(u.exec(p.cookie)||[0,"new"])[1]+"/modifications.min.js?http-referer="+d+"&timeout="+f+"ms"+(g?"&cookie-expires="+Math.floor(g.getTime()/1e3):"");"sync"===e.new_experiments.mode&&r.localStorage.getItem("__exponea__sync_modifications__")?function(e,t,n,i,o){n[o][t]="<"+t+' src="'+e+'"></'+t+">",i.writeln(n[o][t]),i.writeln("<"+t+">!"+o+".init && document.writeln("+o+"."+t+'.replace("/'+t+'/", "/'+t+'-async/").replace("><", " async><"))</'+t+">")}(b,t,r,p,n):function(e,t,n,i,o,r,s,c){r.documentElement.classList.add(e);const a=m(n,i,r);function p(){o[c].init||m(n.replace("/"+i+"/","/"+i+"-async/"),i,r)}function l(){r.documentElement.classList.remove(e)}a.onload=p,a.onerror=p,o.setTimeout(l,t),o[s]._revealPage=l}(_,f,b,t,r,p,o,n)}(r,n,i,0,t,o,e,RegExp("__exponea_etc__"+"=([\\w-]+)")),function(e,t,n){var i;e[t]._initializeConfig(n),(null===(i=n.experimental)||void 0===i?void 0:i.non_personalized_weblayers)&&e[t]._preInitialize(n),e[t].start=function(i){i&&Object.keys(i).forEach((e=>n[e]=i[e])),e[t].initialize(n)}}(o,t,r)}(document,"brweb","script","webxpClient",window,{
-    target: 'https://uqa.api.exponea.dev',
-    stream_id: 'e5a39489-5313-4aeb-867a-0050c17d4e96',
-    // file_path: 'http://localhost:4000/brweb.js',
-    debug: true,
-  }
-  );
+            !(function (e, t, n, i, o, r) {
+                const s = 4e3,
+                    c = 'xnpe_async_hide';
+                function a(e) {
+                    if ('number' != typeof e) return e;
+                    const t = new Date();
+                    return new Date(t.getTime() + 1e3 * e);
+                }
+                function p(e) {
+                    return e.reduce(
+                        function (e, t) {
+                            return (
+                                (e[t] = function () {
+                                    e._.push([t.toString(), arguments]);
+                                }),
+                                e
+                            );
+                        },
+                        { _: [] },
+                    );
+                }
+                function m(e, t, n) {
+                    const i = n.createElement(t);
+                    i.src = e;
+                    const o = n.getElementsByTagName(t)[0];
+                    return (o.parentNode.insertBefore(i, o), i);
+                }
+                function l(e) {
+                    return (
+                        '[object Date]' === Object.prototype.toString.call(e)
+                    );
+                }
+                ((r.target = r.target || '//api.exponea.com'),
+                    (r.file_path =
+                        r.file_path || r.target + '/js/brweb.min.js'),
+                    (o[t] = p([
+                        'anonymize',
+                        'initialize',
+                        'identify',
+                        'getSegments',
+                        'update',
+                        'track',
+                        'trackLink',
+                        'trackEnhancedEcommerce',
+                        'getHtml',
+                        'showHtml',
+                        'showBanner',
+                        'showWebLayer',
+                        'ping',
+                        'getAbTest',
+                        'loadDependency',
+                        'getRecommendation',
+                        'reloadWebLayers',
+                        '_preInitialize',
+                        '_initializeConfig',
+                        'metadata',
+                    ])),
+                    (o[t].notifications = p([
+                        'isAvailable',
+                        'isSubscribed',
+                        'subscribe',
+                        'unsubscribe',
+                    ])),
+                    (o[t].segments = p(['subscribe'])),
+                    (o[t]['snippetVersion'] = 'v3.1.1'),
+                    (function (e, t, n, i) {
+                        e[i] = {
+                            sdk: e[n],
+                            sdkObjectName: n,
+                            skipExperiments: !!t.new_experiments,
+                            path: t.target,
+                            streamId: t.stream_id,
+                        };
+                    })(o, r, t, i),
+                    (function (e, t, n) {
+                        m(e.file_path, t, n);
+                    })(r, n, e),
+                    (function (e, t, n, i, o, r, p, u) {
+                        if (!e.new_experiments) return;
+                        !0 === e.new_experiments && (e.new_experiments = {});
+                        const _ = e.new_experiments.hide_class || c,
+                            f = e.new_experiments.timeout || s,
+                            d = encodeURIComponent(r.location.href);
+                        let g;
+                        (e.cookies &&
+                            e.cookies.expires &&
+                            ('number' == typeof e.cookies.expires ||
+                            l(e.cookies.expires)
+                                ? (g = a(e.cookies.expires))
+                                : e.cookies.expires.tracking &&
+                                  ('number' ==
+                                      typeof e.cookies.expires.tracking ||
+                                      l(e.cookies.expires.tracking)) &&
+                                  (g = a(e.cookies.expires.tracking))),
+                            g && g < new Date() && (g = void 0));
+                        const b =
+                            'http://localhost:4000' +
+                            '/webxp/streams/' +
+                            e.stream_id +
+                            '/' +
+                            t +
+                            '/' +
+                            (u.exec(p.cookie) || [0, 'new'])[1] +
+                            '/modifications.min.js?http-referer=' +
+                            d +
+                            '&timeout=' +
+                            f +
+                            'ms' +
+                            (g
+                                ? '&cookie-expires=' +
+                                  Math.floor(g.getTime() / 1e3)
+                                : '');
+                        'sync' === e.new_experiments.mode &&
+                        r.localStorage.getItem(
+                            '__exponea__sync_modifications__',
+                        )
+                            ? (function (e, t, n, i, o) {
+                                  ((n[o][t] =
+                                      '<' +
+                                      t +
+                                      ' src="' +
+                                      e +
+                                      '"></' +
+                                      t +
+                                      '>'),
+                                      i.writeln(n[o][t]),
+                                      i.writeln(
+                                          '<' +
+                                              t +
+                                              '>!' +
+                                              o +
+                                              '.init && document.writeln(' +
+                                              o +
+                                              '.' +
+                                              t +
+                                              '.replace("/' +
+                                              t +
+                                              '/", "/' +
+                                              t +
+                                              '-async/").replace("><", " async><"))</' +
+                                              t +
+                                              '>',
+                                      ));
+                              })(b, t, r, p, n)
+                            : (function (e, t, n, i, o, r, s, c) {
+                                  r.documentElement.classList.add(e);
+                                  const a = m(n, i, r);
+                                  function p() {
+                                      o[c].init ||
+                                          m(
+                                              n.replace(
+                                                  '/' + i + '/',
+                                                  '/' + i + '-async/',
+                                              ),
+                                              i,
+                                              r,
+                                          );
+                                  }
+                                  function l() {
+                                      r.documentElement.classList.remove(e);
+                                  }
+                                  ((a.onload = p),
+                                      (a.onerror = p),
+                                      o.setTimeout(l, t),
+                                      (o[s]._revealPage = l));
+                              })(_, f, b, t, r, p, o, n);
+                    })(
+                        r,
+                        n,
+                        i,
+                        0,
+                        t,
+                        o,
+                        e,
+                        RegExp('__exponea_etc__' + '=([\\w-]+)'),
+                    ),
+                    (function (e, t, n) {
+                        var i;
+                        (e[t]._initializeConfig(n),
+                            (null === (i = n.experimental) || void 0 === i
+                                ? void 0
+                                : i.non_personalized_weblayers) &&
+                                e[t]._preInitialize(n),
+                            (e[t].start = function (i) {
+                                (i &&
+                                    Object.keys(i).forEach(
+                                        (e) => (n[e] = i[e]),
+                                    ),
+                                    e[t].initialize(n));
+                            }));
+                    })(o, t, r));
+            })(document, 'brweb', 'script', 'webxpClient', window, {
+                target: 'https://uqa.api.exponea.dev',
+                token: 'ade3a518-4b6e-11f0-b710-720beeaf4e40',
+                // stream_id: "e5a39489-5313-4aeb-867a-0050c17d4e96",
+                // file_path: 'http://localhost:4000/brweb.js',
+                debug: true,
+            });
 
-  
-
-  brweb.start();
-</script>
-    <title>React demo page for testing UTR</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+            brweb.start();
+        </script>
+        <title>React demo page for testing UTR</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.tsx"></script>
+    </body>
 </html>
