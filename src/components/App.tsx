@@ -11,10 +11,14 @@ declare global {
 function App({ language }: { language: string }) {
 
   useEffect(() => {
-    setTimeout(() => {
-      window.brweb.track('view_homepage');
+    window.brweb.metadata({
+      view_id: {
+        lang: language
+      }
     });
-  }, []);
+
+    window.brweb.track('view_homepage');
+  }, [language]);
 
   const getHeaderText = () => {
     if (language === 'en') return 'Welcome to Our Store';

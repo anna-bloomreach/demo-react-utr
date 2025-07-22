@@ -14,11 +14,10 @@ const Product: React.FC<{ language: string }> = ({ language }) => {
   const brweb = window.brweb;
 
   useEffect(() => {
-    setTimeout(() => brweb.track('view_item', {
+     brweb.track('view_item', {
       id,
       price,
-      name: en.name,
-    }), 1000);
+      name: en.name,});
   }, []);
 
   return (<div className="product-page">
